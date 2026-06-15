@@ -6,10 +6,11 @@ from common.domain.contracts.game_object import GameObject
 from common.domain.type_registry import TypeRegistry
 
 
-class GameObjectContainer(BaseModel):
+# If this doesn't work, we should try the solution proposed by tkellogg
+# github.com/pydantic/pydantic/discussions/3091
+
+class GameObjectContainer(BaseModel, frozen=True):
     GameObjects: List[GameObject]
-    class Config:
-        frozen = True
 
     @field_validator('GameObjects', mode="before")
     @classmethod
@@ -21,3 +22,4 @@ class GameObjectContainer(BaseModel):
                 raise ValueError("Missing object_type")
             model = TypeRegistry.get(tag)
             out.append(TypeAdapter(model).validate_python(obj))
+        return out

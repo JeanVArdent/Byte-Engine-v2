@@ -10,9 +10,7 @@ from pydantic import BaseModel, Field
 # new_user = user.copy(update={"username": "jane_doe"})
 
 
-class GameObject(BaseModel):
+class GameObject(BaseModel, frozen=True):
     id: str = Field(default_factory=lambda: str(uuid.uuid7()))
     object_type: str
     state: str = "idle"
-    class Config:
-        frozen = True
