@@ -1,0 +1,85 @@
+[build-system]
+requires = ["uv_build>=0.11.21,<0.12"]
+build-backend = "uv_build"
+
+[project]
+name = "bytele"
+version = '0.0.0'
+description = 'CLI and modules for competing in Byte-le Royale'
+readme = "README.md"
+requires-python = "==3.13.*"
+license = "MIT"
+keywords = []
+authors = [
+  {name = "Noah Magcalas", email = "noah.magcalas@gmail.com "},
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+  "typer>=0.21.1",
+  "tqdm~=4.67.1",
+  "pygame~=2.6.1",
+  "numpy~=2.2.6",
+  "opencv-python~=4.12.0.88",
+  "psycopg2-binary~=2.9.11",
+  "SQLAlchemy~=2.0.45",
+  "pydantic~=2.12.5",
+  "fastapi[all]~=0.127.1",
+  "schedule~=1.2.2",
+  "requests~=2.32.5",
+  "urllib3~=2.6.2",
+  "pandas~=2.3.3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest~=9.0.2",
+  "sphinx-autobuild~=2025.8.25",
+  "debugpy~=1.8.20"
+]
+docs = [
+  "sphinx~=8.2.3",
+  "sphinx-copybutton~=0.5.2",
+  "sphinx-tabs~=3.4.7",
+  "myst-parser~=4.0.1",
+  "shibuya~=2026.1.9",
+]
+
+[project.scripts]
+bytele = "bytele.cli:app"
+
+[project.entry-points."pipx.run"]
+bytele = "bytele.cli:app"
+
+[project.urls]
+Source = "https://github.com/acm-ndsu/"
+Discord = "https://discord.gg/"
+Issues = "https://github.com/acm-ndsu/"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/bytele tests}"
+[tool.hatch.version]
+path = "src/bytele/__about__.py"
+
+[tool.uv.sources]
+common = { workspace = true }
+game = { workspace = true }
+server = { workspace = true }
+visualizer= { workspace = true }
+[tool.uv.workspace]
+members = [
+  "common/*",
+  "game/*",
+  "server/*",
+  "visualizer/*",
+  ]
+
+[pytest]
+addopts = ["--import-mode=importlib"]
