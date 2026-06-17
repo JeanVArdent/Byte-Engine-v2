@@ -71,14 +71,14 @@ path = "src/bytele/__about__.py"
 [tool.uv.sources]
 common = { workspace = true }
 game = { workspace = true }
-server = { workspace = true }
-visualizer= { workspace = true }
+# server = { workspace = true }
+# visualizer= { workspace = true }
 [tool.uv.workspace]
 members = [
-  "common/*",
-  "game/*",
-  "server/*",
-  "visualizer/*",
+  "common",
+  "game",
+  # "server",
+  # "visualizer",
   ]
 
 [pytest]
