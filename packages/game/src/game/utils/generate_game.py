@@ -1,4 +1,5 @@
 import random
+
 from game.common.avatar import Avatar
 from game.utils.vector import Vector
 from game.config import *
@@ -6,7 +7,7 @@ from game.utils.helpers import write_json_file
 from game.common.map.game_board import GameBoard
 
 
-def generate(seed: int = random.randint(0, 1000000000)):
+def generate_new_map(seed: int = random.randint(0, 1000000000)):
     """
     This method is what generates the game_map. This method is slow, so be mindful when using it. A seed can be set as
     the parameter; otherwise, a random one will be generated. Then, the method checks to make sure the location for

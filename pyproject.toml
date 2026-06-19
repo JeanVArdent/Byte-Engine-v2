@@ -1,6 +1,6 @@
 [build-system]
-requires = ["uv_build>=0.11.21,<0.12"]
-build-backend = "uv_build"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "bytele"
@@ -19,6 +19,10 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
+  "common",
+  "game",
+  "server",
+  "visualizer",
   "typer>=0.21.1",
   "tqdm~=4.67.1",
   "pygame~=2.6.1",
@@ -34,11 +38,22 @@ dependencies = [
   "pandas~=2.3.3",
 ]
 
-[project.optional-dependencies]
+[project.scripts]
+bytele = "bytele.main:app"
+
+[project.entry-points."pipx.run"]
+bytele = "bytele.main:app"
+
+[project.urls]
+Source = "https://github.com/acm-ndsu/"
+Discord = "https://discord.gg/"
+Issues = "https://github.com/acm-ndsu/"
+
+[dependency-groups]
 dev = [
-  "pytest~=9.0.2",
-  "sphinx-autobuild~=2025.8.25",
-  "debugpy~=1.8.20"
+    "pytest>=9.0.3",
+    "sphinx-autobuild>=2025.8.25",
+    {include-group = "docs"},
 ]
 docs = [
   "sphinx~=8.2.3",
@@ -47,17 +62,6 @@ docs = [
   "myst-parser~=4.0.1",
   "shibuya~=2026.1.9",
 ]
-
-[project.scripts]
-bytele = "bytele.cli:app"
-
-[project.entry-points."pipx.run"]
-bytele = "bytele.cli:app"
-
-[project.urls]
-Source = "https://github.com/acm-ndsu/"
-Discord = "https://discord.gg/"
-Issues = "https://github.com/acm-ndsu/"
 
 [tool.hatch.envs.types]
 extra-dependencies = [
@@ -68,18 +72,16 @@ check = "mypy --install-types --non-interactive {args:src/bytele tests}"
 [tool.hatch.version]
 path = "src/bytele/__about__.py"
 
+[tool.uv.workspace]
+members = [
+  "packages/*",
+]
 [tool.uv.sources]
 common = { workspace = true }
 game = { workspace = true }
-# server = { workspace = true }
-# visualizer= { workspace = true }
-[tool.uv.workspace]
-members = [
-  "common",
-  "game",
-  # "server",
-  # "visualizer",
-  ]
+server = { workspace = true }
+visualizer= { workspace = true }
 
 [pytest]
 addopts = ["--import-mode=importlib"]
+
