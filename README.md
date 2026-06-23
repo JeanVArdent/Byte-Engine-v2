@@ -1,7 +1,7 @@
 # Byte Engine
 
 Revamped base game engine for use in NDACM Byte-le Royale games.
-Changes made in 2023.
+Changes made in 2026.
 
 ## Important Changes
 
@@ -187,25 +187,62 @@ Changes made in 2023.
   what's discussed.
 
 
+## Requirements
 
-## How to run
+- Python 3.13 for the [warnings.deprecated() decorator](https://docs.python.org/3/library/warnings.html#warnings.deprecated)
+
+## How to install dependencies
+
+Ensure you have first [created and activated a virtual environment](https://docs.python.org/3/library/venv.html#creating-virtual-environments). Then run
 
 ```bash
-.\build.bat - will build your code (compile, pretty much)
-
-python .\launcher.pyz g - will generate a map 
-
-python .\launcher.pyz r - will run the game
+pip install --editable . --group dev
 ```
 
-## Required Python Version
-
-- Requires Python 3.11 due to type of Self
-
-## Test Suite Commands:
+Note that you can use `-e` instead of `--editable` (but not `-g` instead of `--group`) like so:
 
 ```bash
-python -m game.test_suite.runner
+pip install -e . --group dev
+```
+
+### Using UV
+
+If you are using [uv](https://docs.astral.sh/uv/), you can simply run
+
+```bash
+uv sync
+```
+
+## Using the CLI
+
+Once you have installed the "bytele" package (via the above commands or from PyPI), you can use `bytele` like any other shell command. For example, run `bytele -h`.
+
+## Useful Developer Commands:
+
+Run all tests:
+
+```bash
+pytest
+```
+
+Note: If "pytest" is an unknown command, ensure you have activated your virtual environment and installed the dev dependencies.
+
+Run only game tests
+
+```bash
+pytest tests/game/
+```
+
+Run only server tests
+
+```bash
+pytest tests/server/
+```
+
+Run a type checker (requires that [Hatch](https://hatch.pypa.io/latest/) is installed)
+
+```bash
+hatch run types:check
 ```
 
 ## Manual
@@ -227,3 +264,9 @@ Referenced Examples - https://github.com/topoftheyear/Byte-le-Game-Examples
 2022 - FarTech - https://github.com/HagenSR/byte_le_royale_2022
 
 2023 - Undercooked - https://github.com/amanda-f-ndsu/byte_le_royale_2023
+
+2024 - Quarry Rush - https://github.com/acm-ndsu/Byte-le-2024
+
+2025 - Commander Clash - https://github.com/acm-ndsu/Byte-le-2025
+
+2026 - Five Nights at the ACM - https://github.com/acm-ndsu/Byte-le-Engine-v2-2026
