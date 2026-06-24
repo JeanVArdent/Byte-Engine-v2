@@ -15,7 +15,7 @@ class Client(UserClient):
         return 'Team 2'
 
     # This is where your AI will decide what to do
-    def take_turn(self, turn, actions, world, avatar):
+    def take_turn(self, turn, actions, world, avatars, avatar):
         """
         This is where your AI will decide what to do.
         :param turn:        The current turn of the game.
