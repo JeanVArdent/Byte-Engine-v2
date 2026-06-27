@@ -7,15 +7,16 @@ CLIENT_DIRECTORY = "./"
 CLIENT_KEYWORD = "client"
 
 
+# TODO: rewrite this to Not rely on mysterious "args" param
 class Client:
-    def __init__(self, args):
+    def __init__(self, args, utils: ClientUtils | None = None):
         # If vID exists, read it
         if os.path.isfile('vID'):
             with open('vID') as f:
                 self.vid = f.read()
 
-        self.utils = ClientUtils(args.csv)
-        self.handle_client(args)
+        self.utils = utils or ClientUtils(args.csv)
+        # self.handle_client(args)
 
     # Determines what action the client wants to do
 
