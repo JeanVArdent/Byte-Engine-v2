@@ -49,7 +49,7 @@ def game(
     log_dir: Annotated[str | None, typer.Option("-l", "--log-path", help="Path to a directory containing turn logs to visualize")] = None,
     result_screen_duration: Annotated[int, typer.Option("--results-duration", help="Sets the time for how long the visualizer will pause on the results screen", min=1)] = 1,
     skip_start: Annotated[bool, typer.Option("--skip-start", help="Skips the first screen of the visualizer to make viewing the game faster")] = False,
-    playback_speed: Annotated[float, typer.Option("--playback-speed", help="Playback speed of the visualizer (turns per second)", min=0.1)] = 1.0,
+    playback_speed: Annotated[float, typer.Option("--playback-speed", help="Playback speed of the visualizer (turns per second)", min=1.0)] = 1.0,
     fullscreen: Annotated[bool, typer.Option("-f", "--fullscreen", help="Determines whether to display the visualizer in fullscreen or not")] = False,
 ):
     if generate:
