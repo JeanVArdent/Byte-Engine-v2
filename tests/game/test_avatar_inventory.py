@@ -2,7 +2,8 @@ import unittest
 
 from game.common.avatar import Avatar
 from game.common.items.item import Item
-import game.test_suite.utils
+
+from tests import utils
 
 
 class TestAvatarInventory(unittest.TestCase):
@@ -17,7 +18,7 @@ class TestAvatarInventory(unittest.TestCase):
     def setUp(self) -> None:
         self.avatar: Avatar = Avatar(None, 1)
         self.item: Item = Item(10, 100, 1, 1)
-        self.utils = game.test_suite.utils
+        self.utils = utils
 
     # test set inventory
     def test_avatar_set_inventory(self):

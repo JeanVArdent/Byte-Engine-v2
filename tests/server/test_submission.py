@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 
-from server.unit_tests.conftest import EXPECTED_DATETIME, EXPECTED_SUBMISSION, EXPECTED_SUBMISSION_RESPONSE, EXPECTED_TEAM
+from tests.conftest import EXPECTED_DATETIME, EXPECTED_SUBMISSION, EXPECTED_SUBMISSION_RESPONSE, EXPECTED_TEAM
 
 
 def test_post_submission(client: TestClient, example_team) -> None:

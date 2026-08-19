@@ -11,7 +11,8 @@ from game.controllers.movement_controller import MovementController
 from game.utils.vector import Vector
 from game.common.game_object import GameObject
 from game.common.map.game_board import GameBoard
-from game.test_suite.utils import spell_check
+
+from tests.utils import spell_check
 
 
 class TestGameBoard(unittest.TestCase):
