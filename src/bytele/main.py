@@ -1,9 +1,5 @@
-import json
-import sys
-import argparse
 import typer
 from typing import Annotated
-from dataclasses import dataclass
 
 import game.config as config
 
@@ -11,7 +7,6 @@ from bytele.__about__ import __version__ as VERSION
 from game.common.enums import DebugLevel
 from game.engine import Engine
 from game.utils.generate_game import generate_new_map
-from server.client.client import Client
 from visualizer.main import ByteVisualiser
 
 from bytele.client_cli import client_app

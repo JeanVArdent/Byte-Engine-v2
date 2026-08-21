@@ -7,7 +7,6 @@ CLIENT_DIRECTORY = "./"
 CLIENT_KEYWORD = "client"
 
 
-# TODO: rewrite this to Not rely on mysterious "args" param
 class Client:
     def __init__(self, args, utils: ClientUtils | None = None):
         # If vID exists, read it
@@ -16,10 +15,8 @@ class Client:
                 self.vid = f.read()
 
         self.utils = utils or ClientUtils(args.csv)
-        # self.handle_client(args)
 
     # Determines what action the client wants to do
-
     def handle_client(self, args):
         try:
             # The rest of the if statements will attempt to fulfill the desired command
@@ -150,7 +147,6 @@ class Client:
 
     def submit(self):
         if not self.verify():
-            print('You need to register first.')
             return
 
         # Check and verify client file
