@@ -1,7 +1,7 @@
 import unittest
 
 from game.utils.vector import Vector
-import game.test_suite.utils
+from tests import utils
 
 class TestVector(unittest.TestCase):
     """
@@ -13,7 +13,7 @@ class TestVector(unittest.TestCase):
     def setUp(self) -> None:
         self.vector1: Vector = Vector(8, 10)
         self.vector2: Vector = Vector(x=5, y=5)
-        self.utils = game.test_suite.utils
+        self.utils = utils
 
     # test sets
     def test_vector_set_x(self) -> None:

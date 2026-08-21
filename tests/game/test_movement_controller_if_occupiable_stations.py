@@ -9,7 +9,8 @@ from game.common.player import Player
 from game.common.stations.occupiable_station import OccupiableStation
 from game.controllers.movement_controller import MovementController
 from game.utils.vector import Vector
-import game.test_suite.utils
+
+from tests import utils
 
 class TestMovementControllerIfOccupiableStations(unittest.TestCase):
     """
@@ -44,7 +45,7 @@ class TestMovementControllerIfOccupiableStations(unittest.TestCase):
         self.position = Vector(2, 2)
         self.client = Player(None, None, [], self.avatar)
         self.game_board.generate_map()
-        self.utils = game.test_suite.utils
+        self.utils = utils
     # it is not occupied, so you can move there
 
     def test_move_up(self):

@@ -1,6 +1,6 @@
 import unittest
-import game.test_suite.utils
 
+from . import utils
 
 class TestUtils(unittest.TestCase):
     """
@@ -10,7 +10,7 @@ class TestUtils(unittest.TestCase):
     """
 
     def setUp(self):
-        self.utils = game.test_suite.utils
+        self.utils = utils
         self.printing: bool = False
 
     def test_diff_len(self):

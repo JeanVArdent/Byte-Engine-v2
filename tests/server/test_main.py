@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 
-from server.unit_tests.conftest import EXPECTED_SUBMISSION_RESPONSE
+from tests.conftest import EXPECTED_SUBMISSION_RESPONSE
 
 
 
