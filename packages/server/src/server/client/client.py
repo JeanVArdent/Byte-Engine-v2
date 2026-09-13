@@ -8,17 +8,15 @@ CLIENT_KEYWORD = "client"
 
 
 class Client:
-    def __init__(self, args):
+    def __init__(self, args, utils: ClientUtils | None = None):
         # If vID exists, read it
         if os.path.isfile('vID'):
             with open('vID') as f:
                 self.vid = f.read()
 
-        self.utils = ClientUtils(args.csv)
-        self.handle_client(args)
+        self.utils = utils or ClientUtils(args.csv)
 
     # Determines what action the client wants to do
-
     def handle_client(self, args):
         try:
             # The rest of the if statements will attempt to fulfill the desired command
@@ -149,7 +147,6 @@ class Client:
 
     def submit(self):
         if not self.verify():
-            print('You need to register first.')
             return
 
         # Check and verify client file

@@ -3,7 +3,8 @@ import unittest
 from game.common.avatar import Avatar
 from game.common.items.item import Item
 from game.common.enums import ObjectType
-import game.test_suite.utils
+
+from tests import utils
 
 
 class TestItem(unittest.TestCase):
@@ -16,7 +17,7 @@ class TestItem(unittest.TestCase):
     def setUp(self) -> None:
         self.avatar: Avatar = Avatar(None, 1)
         self.item: Item = Item()
-        self.utils = game.test_suite.utils
+        self.utils = utils
 
     # test set durability
     def test_set_durability(self):

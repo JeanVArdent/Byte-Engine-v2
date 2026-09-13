@@ -10,7 +10,8 @@ from game.common.map.game_board import GameBoard
 from game.utils.vector import Vector
 from game.common.enums import ActionType
 from game.common.enums import ObjectType
-import game.test_suite.utils
+
+from tests import utils
 
 # class that tests stations and its methods
 class TestStation(unittest.TestCase):
@@ -31,7 +32,7 @@ class TestStation(unittest.TestCase):
         self.avatar.inventory = self.inventory
         self.game_board = GameBoard(None, Vector(4, 4), None, False)
         self.inventory_controller = InventoryController()
-        self.utils = game.test_suite.utils
+        self.utils = utils
     # test adding item to station
     def test_item_occ(self):
         self.station.held_item = self.item

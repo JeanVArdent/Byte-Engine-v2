@@ -41,7 +41,7 @@ def as_result(func: Callable):
 
 
 class ClientUtils:
-    def __init__(self, csv_bool: bool) -> None:
+    def __init__(self, csv_bool: bool = False) -> None:
         urllib3.disable_warnings()
         self.IP = 'http://127.0.0.1:8000/'
         self.path_to_public = False

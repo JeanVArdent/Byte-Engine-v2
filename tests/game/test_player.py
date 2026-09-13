@@ -2,7 +2,8 @@ import unittest
 from game.common.player import Player
 from game.common.enums import *
 from game.common.avatar import Avatar
-import game.test_suite.utils
+
+from tests import utils
 
 class TestPlayer(unittest.TestCase):
     """
@@ -18,7 +19,7 @@ class TestPlayer(unittest.TestCase):
         self.actions: list[ActionType] = []
         self.team_name: str | None = ""
         self.avatar: Avatar | None = Avatar()
-        self.utils = game.test_suite.utils
+        self.utils = utils
     # test action
     def test_actions(self):
         # accepts a list of ActionType

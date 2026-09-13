@@ -6,7 +6,8 @@ from game.common.map.wall import Wall
 from game.common.avatar import Avatar
 from game.common.items.item import Item
 from game.common.enums import ObjectType
-import game.test_suite.utils
+
+from tests import utils
 
 
 class TestOccupiableStation(unittest.TestCase):
@@ -24,7 +25,7 @@ class TestOccupiableStation(unittest.TestCase):
         self.station: Station = Station()
         self.avatar: Avatar = Avatar()
         self.item: Item = Item()
-        self.utils = game.test_suite.utils
+        self.utils = utils
 
     # test adding item to occupiable_station
     def test_item_occ(self):

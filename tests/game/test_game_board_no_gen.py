@@ -9,7 +9,8 @@ from game.common.map.wall import Wall
 from game.utils.vector import Vector
 from game.common.game_object import GameObject
 from game.common.map.game_board import GameBoard
-import game.test_suite.utils
+
+from tests import utils
 
 
 class TestGameBoard(unittest.TestCase):
@@ -36,7 +37,7 @@ class TestGameBoard(unittest.TestCase):
             Vector(5, 6): [self.wall]
         }
         self.game_board: GameBoard = GameBoard(1, Vector(10, 10), self.locations, False)
-        self.utils = game.test_suite.utils
+        self.utils = utils
 
     # test seed
     def test_seed(self):

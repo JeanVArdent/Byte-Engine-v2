@@ -10,7 +10,8 @@ from game.common.player import Player
 from game.common.action import ActionType
 from game.common.avatar import Avatar
 from game.common.game_object import GameObject
-import game.test_suite.utils
+
+from tests import utils
 
 class TestMovementControllerIfWall(unittest.TestCase):
     """
@@ -33,7 +34,7 @@ class TestMovementControllerIfWall(unittest.TestCase):
         self.wall = Wall()
         self.client = Player(None, None, [], self.avatar)
         self.game_board.generate_map()
-        self.utils = game.test_suite.utils
+        self.utils = utils
 
     def test_move_up(self):
         self.movement_controller.handle_actions(ActionType.MOVE_UP, self.client, self.game_board)
